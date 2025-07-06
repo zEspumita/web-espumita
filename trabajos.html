@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trabajos | Espumita</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0f0f0f;
+      color: white;
+      padding-top: 100px;
+    }
+
+    nav {
+      width: 100%;
+      background-color: #111;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 0 10px #000;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px; /* ← Curvas aquí */
+      z-index: 1;
+    }
+
+    nav a::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, violet);
+      background-size: 300%;
+      z-index: 0;
+      opacity: 0;
+      border-radius: 8px; /* ← Curvas también aquí */
+      transition: opacity 0.4s ease;
+    }
+
+    nav a:hover::before {
+      opacity: 1;
+      animation: rgb-anim 3s linear infinite;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    nav a span {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes rgb-anim {
+      0% { background-position: 0%; }
+      100% { background-position: 300%; }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #00ffaa;
+    }
+
+    .trabajos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem 1rem;
+    }
+
+    .trabajo {
+      background-color: #1a1a1a;
+      border: 2px solid #333;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .trabajo:hover {
+      transform: scale(1.03);
+    }
+
+    .trabajo h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .trabajo span.icono {
+      font-size: 2rem;
+      margin-right: 0.5rem;
+      background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #aaa;
+      margin-top: 4rem;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html"><span>Inicio</span></a>
+    <a href="sobremi.html"><span>Sobre Mí</span></a>
+    <a href="proyectos.html"><span>Proyectos</span></a>
+    <a href="#"><span>Blog</span></a>
+    <a href="trabajos.html"><span>Trabajos</span></a>
+    <a href="precios.html"><span>Precios</span></a>
+    <a href="contacto.html"><span>Contacto</span></a>
+  </nav>
+
+ <h1>Mis Trabajos</h1>
+<p style="text-align:center; font-size: 1.1rem; color: #ccc; margin-top: -1rem;">
+  Estos son mis trabajos actuales de moderación:
+</p>
+
+<div class="trabajos">
+  <div class="trabajo">
+    <h2><span class="icono"></span> 🔮 Buscando Hueco de Trabajo <strong></strong></h2>
+    <p> Me gustaría tener 3 trabajos, y un hueco tengo libre actualmente</p> 
+  </div>
+
+  <div class="trabajo">
+    <h2>⚡ T-Mod en <strong>Storm</strong></h2>
+    <p>Ayudo a los jugadores y mantengo el orden en el servidor Storm.</p>
+  </div>
+
+  <div class="trabajo">
+    <h2>💻 Developer Profesional en <strong>Sweat</strong></h2>
+    <p>Me encargo del desarrollo avanzado de sistemas, bots y optimización en Sweat.</p>
+  </div>
+</div>
+
+  <footer>* Este apartado se actualiza con cada nuevo proyecto importante que completo.</footer>
+</body>
+</html>

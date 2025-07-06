@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precios | Espumita</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0f0f0f;
+      color: white;
+      padding-top: 100px;
+    }
+
+    nav {
+      width: 100%;
+      background-color: #111;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 0 10px #000;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      position: relative;
+      border-radius: 8px;
+      transition: color 0.3s ease;
+      overflow: hidden;
+    }
+
+    nav a::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, violet);
+      background-size: 300%;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      border-radius: 8px;
+    }
+
+    nav a:hover::before {
+      opacity: 1;
+      animation: rgb-anim 3s linear infinite;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    nav a span {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes rgb-anim {
+      0% { background-position: 0%; }
+      100% { background-position: 300%; }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #00ffaa;
+    }
+
+    .subtitulo {
+      text-align: center;
+      margin-top: -10px;
+      margin-bottom: 40px;
+      color: #aaa;
+    }
+
+    .categoria {
+      font-size: 1.5rem;
+      text-align: center;
+      color: orange;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    .planes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 0 1rem;
+    }
+
+    .plan {
+      width: 280px;
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid #333;
+      transition: transform 0.3s;
+    }
+
+    .plan:hover {
+      transform: scale(1.05);
+    }
+
+    .plan h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .precio {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .descripcion {
+      font-size: 0.9rem;
+      margin: 1rem 0;
+      color: #ccc;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .boton {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: #333;
+      color: white;
+      padding: 0.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: auto;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s ease;
+    }
+
+    .boton::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, violet);
+      background-size: 300%;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .boton:hover::before {
+      opacity: 1;
+      animation: rgb-anim 3s linear infinite;
+    }
+
+    .boton:hover {
+      color: white;
+    }
+
+    .boton span {
+      position: relative;
+      z-index: 1;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #aaa;
+      margin-top: 4rem;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html"><span>Inicio</span></a>
+    <a href="sobremi.html"><span>Sobre Mí</span></a>
+    <a href="proyectos.html"><span>Proyectos</span></a>
+    <a href="#"><span>Blog</span></a>
+    <a href="trabajos.html"><span>Trabajos</span></a>
+    <a class="active" href="precios.html"><span>Precios</span></a>
+    <a href="contacto.html"><span>Contacto</span></a>
+  </nav>
+
+  <h1>Mis Servicios y Precios</h1>
+  <p class="subtitulo">Soluciones profesionales adaptadas a tus necesidades y presupuesto</p>
+
+  <div class="categoria">Configuración de Servidores Discord</div>
+  <div class="planes">
+    <div class="plan" style="border-color: red;">
+      <h3>Plan Estándar</h3>
+      <div class="precio">5€</div>
+      <p class="descripcion">Ideal para servidores pequeños y privados.</p>
+      <ul>
+        <li>Instalación de servidor</li>
+        <li>Configuración de bots</li>
+        <li>1 Antiraid</li>
+        <li>1 Servidor de Discord</li>
+      </ul>
+      <a class="boton" href="comprar-planes.html"><span>Comprar Plan</span></a>
+    </div>
+
+    <div class="plan" style="border-color: yellow;">
+      <h3>Plan Avanzado</h3>
+      <div class="precio">10€</div>
+      <p class="descripcion">Perfecto para servidores medianos con personalización.</p>
+      <ul>
+        <li>1 Clase De Configuración Avanzada Gratuita de 2h</li>
+        <li>Instalación de servidor</li>
+        <li>Mas de 15 Bots avanzados</li>
+        <li>3 Servidores</li>
+      </ul>
+      <a class="boton" href="comprar-planes.html"><span>Comprar Plan</span></a>
+    </div>
+
+    <div class="plan" style="border-color: lime;">
+      <h3>Plan Premium</h3>
+      <div class="precio">15€</div>
+      <p class="descripcion">Para servidores grandes o de alto tráfico.</p>
+      <ul>
+        <li>3 Clases De Configuracion Avanzada Gratuitas de 2h</li>
+        <li>Instalación + optimización</li>
+        <li>Más de 20 Bots Avanzados</li>
+        <li>Tienda Página Web Estándar Incluida</li>
+      </ul>
+      <a class="boton" href="comprar-planes.html"><span>Comprar Plan</span></a>
+    </div>
+  </div>
+
+  <div class="categoria" style="color: lime;">Desarrollo Web</div>
+  <div class="planes">
+    <div class="plan" style="border-color: red;">
+      <h3>Plan Estándar</h3>
+      <div class="precio">10€</div>
+      <p class="descripcion">Web sencilla para mostrar tu contenido.</p>
+      <ul>
+        <li>Diseño responsivo</li>
+        <li>Hasta 5 secciones</li>
+        <li>Entrega en 21 días</li>
+      </ul>
+      <a class="boton" href="comprar-planes.html"><span>Comprar Plan</span></a>
+    </div>
+
+    <div class="plan" style="border-color: yellow;">
+      <h3>Plan Avanzado</h3>
+      <div class="precio">15€</div>
+      <p class="descripcion">Web profesional con funcionalidades extra.</p>
+      <ul>
+        <li>Panel de administración</li>
+        <li>Blog, páginas múltiples</li>
+        <li>Entrega en 1 mes</li>
+      </ul>
+      <a class="boton" href="comprar-planes.html"><span>Comprar Plan</span></a>
+    </div>
+
+    <div class="plan" style="border-color: lime;">
+      <h3>Plan Premium</h3>
+      <div class="precio">25€</div>
+      <p class="descripcion">Web avanzada para empresas o portfolios grandes.</p>
+      <ul>
+        <li>Optimización de velocidad</li>
+        <li>Hasta 10 páginas</li>
+        <li>Entrega en 2 meses</li>
+      </ul>
+      <a class="boton" href="comprar-planes.html"><span>Comprar Plan</span></a>
+    </div>
+  </div>
+
+  <footer>* Solo aceptamos dinero por el momento desde Códigos de PaySafeCard.</footer>
+</body>
+</html>

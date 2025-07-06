@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Encargo: Discord</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      color: #7289da;
+      margin-top: 50px;
+    }
+    form {
+      background: #111;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    input, textarea, button {
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+    input, textarea {
+      background: #222;
+      color: white;
+    }
+    button {
+      background: orange;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #ffaa00;
+    }
+    .volver {
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Encargo: Discord</h1>
+  <form id="formulario">
+    <input name="nombre" placeholder="Nombre completo *" required />
+    <input name="contacto" placeholder="Correo electrónico o número de teléfono *" required />
+    <input name="discord" placeholder="Nick de Discord *" required />
+    <input name="estilo" placeholder="Estilo deseado *" required />
+    <input name="descripcion" placeholder="Desarrollo a realizar *" required />
+    <input name="dinero" placeholder="Dinero dispuesto a pagar *" required />
+    <input name="fecha" type="date" required />
+    <button type="submit">Enviar encargo</button>
+  </form>
+  <a class="volver" href="index.html">
+    <button>Volver</button>
+  </a>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwnM_AZal7YJNxfSwJS9-nRYmsK6EmMVb0nV7Fiw4VlwD0xyG6qZr4TBD1jSfvc9YyAaw/exec';
+    const form = document.getElementById('formulario');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const jsonData = {};
+      formData.forEach((value, key) => {
+        jsonData[key] = value;
+      });
+
+      fetch(scriptURL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(jsonData)
+      })
+      .then(response => {
+        if (!response.ok) throw new Error("Error al enviar");
+        return response.text();
+      })
+      .then(() => {
+        alert("✅ ¡Encargo enviado con éxito!\nYa puedes volver a la página anterior.");
+        window.location.href = "index.html";
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        alert("❌ Hubo un error al enviar. Intenta de nuevo más tarde.");
+      });
+    });
+  </script>
+</body>
+</html>

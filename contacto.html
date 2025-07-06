@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | Espumita</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #0f0f0f;
+  color: white;
+  padding-top: 100px;
+}
+
+nav {
+  width: 100%;
+  background-color: #111;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 0 10px #000;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  position: relative;
+  border-radius: 8px;
+  transition: color 0.3s ease;
+  overflow: hidden;
+}
+
+/* RGB hover effect para todos */
+nav a::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, violet);
+  background-size: 300%;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  border-radius: 8px;
+}
+
+nav a:hover::before,
+nav a.active:hover::before {
+  opacity: 1;
+  animation: rgb-anim 3s linear infinite;
+}
+
+nav a:hover,
+nav a.active:hover {
+  color: white;
+}
+
+nav a span {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes rgb-anim {
+  0% { background-position: 0%; }
+  100% { background-position: 300%; }
+}
+
+/* Quitar animación constante de .active */
+nav a.active {
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #00ffaa;
+}
+
+.subtitulo {
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 40px;
+  color: #aaa;
+}
+
+.categoria {
+  font-size: 1.5rem;
+  text-align: center;
+  color: orange;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.planes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.plan {
+  width: 280px;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #333;
+  transition: transform 0.3s;
+}
+
+.plan:hover {
+  transform: scale(1.05);
+}
+
+.plan h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.precio {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.descripcion {
+  font-size: 0.9rem;
+  margin: 1rem 0;
+  color: #ccc;
+}
+
+ul {
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+ul li {
+  margin-bottom: 0.5rem;
+}
+
+.boton {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #333;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.boton::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, violet);
+  background-size: 300%;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.boton:hover::before {
+  opacity: 1;
+  animation: rgb-anim 3s linear infinite;
+}
+
+.boton:hover {
+  color: white;
+}
+
+.boton span {
+  position: relative;
+  z-index: 1;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 4rem;
+  padding: 1rem;
+}
+
+/* Contacto específico */
+.info {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 0 15px #00000088;
+}
+
+.info h2 {
+  text-align: center;
+  color: orange;
+  margin-bottom: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: #2a2a2a;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.info-item span {
+  font-size: 1.5rem;
+}
+
+.info-item strong {
+  font-size: 1rem;
+}
+
+.detalle {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="sobremi.html">Sobre Mí</a>
+    <a href="proyectos.html">Proyectos</a>
+    <a href="#">Blog</a>
+    <a href="trabajos.html">Trabajos</a>
+    <a href="precios.html">Precios</a>
+    <a href="contacto.html" class="active">Contacto</a>
+  </nav>
+
+  <!-- CONTENIDO DE CONTACTO -->
+  <h1>¿Quieres contactarme?</h1>
+  <p class="subtitulo">¿Tienes alguna duda o quieres hablar sobre tu proyecto? ¡¡Adelante!!</p>
+
+  <div class="info">
+    <h2>Información</h2>
+
+    <div class="info-item">
+      <span>📧</span>
+      <div>
+        <strong>Correo Electrónico</strong>
+        <div class="detalle">espumitastudio@gmail.com</div>
+      </div>
+    </div>
+
+    <div class="info-item">
+      <span>💬</span>
+      <div>
+        <strong>Discord</strong>
+        <div class="detalle">svenark</div>
+      </div>
+    </div>
+
+    <div class="info-item">
+      <span>📍</span>
+      <div>
+        <strong>Ubicación</strong>
+        <div class="detalle">España</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Este sitio recopila datos de uso (IP y región) con fines estadísticos. No se comparten con terceros.
+  </footer>
+
+</body>
+</html>

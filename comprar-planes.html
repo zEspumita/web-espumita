@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comprar Planes</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .volver {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      text-decoration: none;
+      background: linear-gradient(270deg, #ff0080, #7928ca, #2afadf, #ff0080);
+      background-size: 600% 600%;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      border: none;
+      transition: background-position 1s ease-in-out;
+    }
+
+    .volver:hover {
+      animation: rgbMove 3s infinite;
+    }
+
+    @keyframes rgbMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 60px auto 0 auto;
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: #2c2c2c;
+      color: white;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: linear-gradient(270deg, #ff0080, #7928ca, #2afadf, #ff0080);
+      background-size: 600% 600%;
+      color: white;
+      transition: background-position 1s ease-in-out;
+    }
+
+    button:hover {
+      animation: rgbMove 3s infinite;
+    }
+
+    .legal {
+      font-size: 12px;
+      text-align: center;
+      margin-top: 30px;
+      color: #aaa;
+    }
+
+    select option {
+      background: #2c2c2c;
+    }
+
+    .info-pago {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #ddd;
+    }
+
+    .info-pago a {
+      color: #e91e63;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔙 BOTÓN DE VOLVER -->
+  <a class="volver" href="precios.html">⬅ Volver a precios</a>
+
+  <h1>Comprar Plan</h1>
+
+  <form id="formulario">
+    <label for="nombre">Nombre o Apodo:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="correo">Correo electrónico:</label>
+    <input type="email" id="correo" name="correo" required>
+
+    <label for="discord">Usuario de Discord:</label>
+    <input type="text" id="discord" name="discord" required>
+
+    <label for="plan">Plan deseado:</label>
+    <select id="plan" name="plan" required>
+      <option value="">-- Elige un plan --</option>
+      <option value="Plan Discord Estándar 5€">Discord Estándar 5€</option>
+      <option value="Plan Discord Avanzado 10€">Discord Avanzado 10€</option>
+      <option value="Plan Discord Premium 15€">Discord Premium 15€</option>
+      <option value="Plan Página Web Estándar 10€">Página Web Estándar 10€</option>
+      <option value="Plan Página Web Avanzado 15€">Página Web Avanzado 15€</option>
+      <option value="Plan Página Web Premium 25€">Página Web Premium 25€</option>
+    </select>
+
+    <label for="codigo_paysafe">Código PaySafeCard:</label>
+    <input type="text" id="codigo_paysafe" name="codigo_paysafe" required>
+
+    <label for="comentario">Comentario adicional:</label>
+    <textarea id="comentario" name="comentario" rows="3" placeholder="Opcional..."></textarea>
+
+    <label>
+      <input type="checkbox" name="terminos" required>
+      Acepto los términos y condiciones.
+    </label>
+
+    <button type="submit">Enviar compra</button>
+  </form>
+
+  <div class="info-pago">
+    ⚠️ <strong>De momento solo aceptamos dinero en PaySafeCard.</strong><br>
+    Si quieres pagar de otra manera, contacta con  
+    <a href="mailto:espumitastudio@gmail.com">espumitastudio@gmail.com</a>.
+  </div>
+
+  <p class="legal">
+    Este sitio recopila datos de uso (IP y región) con fines estadísticos. No se comparten con terceros.
+  </p>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzJBHk0pZNqc4ekSYUXoko1lJ7gvn9fqCl1MjzJ2tWcS288gxB0j3aSRODKZbXpeJfjfg/exec';
+    const form = document.getElementById('formulario');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, {
+        method: 'POST',
+        body: new FormData(form)
+      })
+      .then(response => {
+        alert("✅ Compra enviada correctamente");
+        form.reset();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert("❌ Hubo un error al enviar los datos.");
+      });
+    });
+  </script>
+
+</body>
+</html>

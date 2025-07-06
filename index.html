@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio Espumita</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f0f0f;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    nav {
+      width: 100%;
+      background-color: #111;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 0 10px #000;
+    }
+    nav a {
+      position: relative;
+      padding: 0.5rem 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 6px;
+      border: 2px solid transparent;
+      background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, violet);
+      background-size: 300%;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      animation: rgb-border 3s linear infinite;
+    }
+    nav a:hover::before {
+      opacity: 1;
+    }
+    @keyframes rgb-border {
+      0% { background-position: 0% }
+      100% { background-position: 300% }
+    }
+    .contenido {
+      padding-top: 90px;
+    }
+    header { padding: 2rem; text-align: center; }
+    h1 span {
+      background: linear-gradient(to right, orange, yellow);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .skills {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      border-radius: 10px;
+      background-color: #1a1a1a;
+    }
+    .skill { margin-bottom: 1.5rem; }
+    .skill h2 { margin-bottom: 0.5rem; color: #ff4040; }
+    .legal {
+      margin-top: auto;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: #ccc;
+      text-align: center;
+    }
+    .encargos {
+      text-align: center;
+      padding: 2rem;
+    }
+    .encargos h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .encargos p {
+      margin-bottom: 0.2rem;
+    }
+    .contact-note {
+      font-size: 0.85rem;
+      color: #bbb;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .opciones {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .opcion {
+      width: 250px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s;
+      text-decoration: none;
+      color: white;
+    }
+    .opcion:hover {
+      transform: scale(1.05);
+    }
+    .html { background-color: #ff4d4d; }
+    .appscripts { background-color: #4dff4d; }
+    .discord { background-color: #3399ff; }
+    .hosting { background-color: #ffd633; color: black; }
+  </style>
+</head>
+<body>
+
+  <!-- MENÚ SUPERIOR -->
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="sobremi.html"><b>Sobre Mí</b></a>
+    <a href="proyectos.html">Proyectos</a>
+    <a href="blog.html">Blog</a>
+    <a href="trabajos.html">Trabajos</a>
+    <a href="precios.html">Precios</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <div class="contenido">
+    <header>
+      <h1>Hola, soy <span>Espumita</span></h1>
+      <p>Desarrollador Web, de Videojuegos & Staff</p>
+    </header>
+
+    <section class="skills">
+      <div class="skill">
+        <h2>Desarrollo Web</h2>
+        <p>HTML, CSS y JavaScript. Aprendizaje en progreso...</p>
+      </div>
+      <div class="skill">
+        <h2 style="color: yellow;">Videojuegos</h2>
+        <p>Diseño de juegos y Unity</p>
+      </div>
+      <div class="skill">
+        <h2 style="color: #3399ff;">Staff</h2>
+        <p>Consola y experiencias</p>
+      </div>
+    </section>
+
+    <section class="encargos">
+      <h2>🛠 CONFIGURACIONES A ENCARGO</h2>
+      <p>Haz clic para hacer un encargo:</p>
+      <p class="contact-note">
+        Se te contactará por correo electrónico o MD de Discord. Si no respondes, se intentará por el otro medio.
+      </p>
+      <div class="opciones">
+        <a href="encargoshtml.html" class="opcion html">🔴 HTML</a>
+        <a href="encargosappscripts.html" class="opcion appscripts">🟢 AppScripts</a>
+        <a href="encargosdiscord.html" class="opcion discord">🔵 Discord</a>
+        <a href="encargoshosting.html" class="opcion hosting">🟡 Página Web Hosting</a>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>

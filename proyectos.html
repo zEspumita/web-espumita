@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Proyectos | Espumita</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f0f0f;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav {
+      width: 100%;
+      background-color: #111;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 0 10px #000;
+    }
+
+    nav a {
+      position: relative;
+      padding: 0.5rem 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav a::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 6px;
+      border: 2px solid transparent;
+      background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, violet);
+      background-size: 300%;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      animation: rgb-border 3s linear infinite;
+    }
+
+    nav a:hover::before {
+      opacity: 1;
+    }
+
+    @keyframes rgb-border {
+      0% { background-position: 0% }
+      100% { background-position: 300% }
+    }
+
+    .contenido {
+      padding-top: 100px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      background: linear-gradient(90deg, #FFA500, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200%;
+      animation: brillo 4s linear infinite;
+    }
+
+    @keyframes brillo {
+      0% { background-position: 0% }
+      100% { background-position: 200% }
+    }
+
+    .proyecto {
+      background: linear-gradient(90deg, #002244, #5e2b97, #ff005e);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      margin-bottom: 3rem;
+    }
+
+    .proyecto img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .proyecto h2 {
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    .proyecto p.estado {
+      background-color: rgba(0, 0, 0, 0.3);
+      display: inline-block;
+      padding: 0.3rem 0.7rem;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    ul.aprendizaje {
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+      line-height: 1.6;
+    }
+
+    ul.aprendizaje li::marker {
+      color: #00ffcc;
+    }
+
+    .legal {
+      margin-top: auto;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: #ccc;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="sobremi.html">Sobre Mí</a>
+    <a href="proyectos.html">Proyectos</a>
+    <a href="blog.html">Blog</a>
+    <a href="trabajos.html">Trabajos</a>
+    <a href="precios.html">Precios</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <div class="contenido">
+    <h1>Mi Proyecto Actual</h1>
+
+    <div class="proyecto">
+      <img src="depositphotos_217144636-stock-photo-abstract-wallpaper-shining-star-dark.jpg" alt="Proyecto en desarrollo">
+
+      <h2>Página Web Espumita</h2>
+      <p class="estado">Estado: En desarrollo</p>
+      <p>Actualmente estoy trabajando en esta página web personal desde cero, con enfoque en diseño, contenido y estructura profesional.</p>
+
+      <h3 style="margin-top:2rem;">💡 10 cosas que estoy aprendiendo con este proyecto:</h3>
+      <ul class="aprendizaje">
+        <li>Diseño estructurado con HTML semántico.</li>
+        <li>Organización visual con CSS moderno (Flexbox, Grid).</li>
+        <li>Estilo y paletas de color adaptadas a una marca personal.</li>
+        <li>Animaciones sutiles para mejorar la experiencia del usuario.</li>
+        <li>Crear una navegación fija, funcional y estética.</li>
+        <li>Maquetación responsive para todos los dispositivos.</li>
+        <li>Buenas prácticas de organización de código CSS.</li>
+        <li>Uso de fuentes externas desde Google Fonts.</li>
+        <li>Accesibilidad visual con contrastes adecuados.</li>
+        <li>Visión global de cómo estructurar una página profesional.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="legal">© 2025 Espumita. Todos los derechos reservados.</div>
+
+</body>
+</html>
